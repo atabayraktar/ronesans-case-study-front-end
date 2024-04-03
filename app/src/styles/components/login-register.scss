@@ -1,0 +1,35 @@
+.login-register-container {
+  border-radius: 12px;
+  padding: 15px;
+  background-color: #ebebeb;
+  border: 1px black;
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      margin: 0px 0 15px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+    .info {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .link {
+      display: flex;
+      margin-top: 5px;
+      font-size: 13px;
+      .link-title {
+        margin-left: 3px;
+        color: blue;
+        cursor: pointer;
+      }
+    }
+  }
+  .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}

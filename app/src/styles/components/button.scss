@@ -1,0 +1,38 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-option-box {
+  button {
+    @extend .btn;
+    width: 272px;
+    border: 1px black !important;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    background: #4857e7;
+  }
+}
+.btn-action-box {
+  button {
+    @extend .btn;
+    width: 150px;
+    border: 1px black !important;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    background: #4857e7;
+  }
+}
