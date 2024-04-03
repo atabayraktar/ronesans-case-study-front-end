@@ -54,7 +54,7 @@ export const userSlice = createSlice({
     builder.addCase(login.fulfilled, (state, action) => ({
       ...state,
       user: action?.payload?.foundUser,
-      user_id: action?.payload?.foundUser?.id,
+      user_id: action?.payload?.foundUser?._id,
     }));
 
     builder.addCase(register.pending, (state) => ({

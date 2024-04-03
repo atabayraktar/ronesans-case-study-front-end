@@ -23,7 +23,7 @@ export const todoService = new TodoService();
 
 export const getAll = createAsyncThunk(
   "todo/GetAll",
-  async (params: Todo) => await todoService.GetAll(params)
+  async (params: any) => await todoService.GetAll(params)
 );
 export const getOne = createAsyncThunk(
   "todo/GetOne",
@@ -57,7 +57,6 @@ export const todoSlice = createSlice({
       todo: {
         id: "",
         name: "",
-        time: new Date(),
         user_id: "",
         isChecked: false,
         version: 0,
@@ -68,7 +67,6 @@ export const todoSlice = createSlice({
       todo: {
         id: "",
         name: "",
-        time: new Date(),
         user_id: "",
         isChecked: false,
         version: 0,

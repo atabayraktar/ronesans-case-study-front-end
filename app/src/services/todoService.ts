@@ -25,9 +25,10 @@ export default class TodoService {
     return res.data;
   }
   async GetAll(params: any): Promise<any> {
-    const res = await axios.get(`http://localhost:3000/todo/getAll`, params);
+    const res = await axios.post(`http://localhost:3000/todo/getAll`, params);
     return res.data;
   }
+
   async GetOne(params: Todo): Promise<any> {
     const res = await axios.get(
       `http://localhost:3000/todo/getOne/${params.id}`

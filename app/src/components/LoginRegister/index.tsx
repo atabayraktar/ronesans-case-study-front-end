@@ -11,6 +11,7 @@ export default function LoginRegister({
   setLoginOrRegister: any;
 }) {
   const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state.user);
 
   const handleLogin = async (event: any) => {
     event.preventDefault();
@@ -18,7 +19,7 @@ export default function LoginRegister({
       username: event.target[0].value,
       password: event.target[1].value,
     };
-    dispatch(login(params));
+    await dispatch(login(params));
     if (user?.id !== "") {
       Router.push("/homePage");
     }
@@ -32,7 +33,6 @@ export default function LoginRegister({
     dispatch(register(params));
     setLoginOrRegister("login");
   };
-  const { user } = useAppSelector((state) => state.user);
 
   return (
     <>

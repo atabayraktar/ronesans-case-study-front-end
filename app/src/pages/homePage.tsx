@@ -7,22 +7,19 @@ import Button from "@/components/Button";
 export default function Home() {
   const dispatch = useAppDispatch();
 
-  const { user } = useAppSelector((state) => state.user);
   const { user_id } = useAppSelector((state) => state.user);
 
   useEffect(() => {
-    if (dispatch && user) {
-      console.log("user" + user_id);
-      dispatch(getAll(user));
+    if (dispatch && user_id !== "") {
+      const params = {
+        user_id: user_id,
+      };
+      console.log(params);
+      dispatch(getAll(params));
     }
-  }, [user]);
+  }, [user_id]);
 
   const { todos } = useAppSelector((state) => state.todo);
-
-  useEffect(() => {
-    console.log("todo" + todos);
-    console.log("user" + user);
-  }, [todos, user]);
 
   return (
     <>
