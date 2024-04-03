@@ -1,0 +1,14 @@
+TODO API : https://todo-l5o4.onrender.com
+
+
+Sadece React tarafında yetinliğiniz var ise direkt yukarıda yayında olan API üzerinde çalışabilir ve bu kapsamda değerlendirilebilirsiniz.
+  
+
+
+Not :
+
+Mülakat GitHub reponuzu ilettiğiniz an tamamlanmış olarak kabul edilip o anda iletilen hali indirilerek değerlendirmeye alınacaktır.
+
+24 saatlik süre içerisinde tamamlanma süresi ne kadar kısa olur ise o kadar pozitif değerlendirilecektir.
+
+Başarılar.
