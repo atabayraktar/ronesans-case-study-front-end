@@ -1,7 +1,7 @@
 export type Todo = {
-  id?: string;
+  _id?: string;
   name?: string;
-  time?: Date;
+  time?: string;
   user_id?: string;
   isChecked?: boolean;
   version?: number;

@@ -13,25 +13,25 @@ export default class TodoService {
   }
   async Delete(params: Todo): Promise<any> {
     const res = await axios.delete(
-      `http://localhost:3000/todo/delete/${params.id}`
+      `http://localhost:3000/todo/delete/${params._id}`
     );
     return res.data;
   }
-  async Check(params: Todo): Promise<any> {
+  async Check(id: string | undefined, isChecked: any): Promise<any> {
     const res = await axios.put(
-      `http://localhost:3000/todo/check/${params.id}`,
-      params.isChecked
+      `http://localhost:3000/todo/check/${id}`,
+      isChecked
     );
     return res.data;
   }
-  async GetAll(params: any): Promise<any> {
-    const res = await axios.post(`http://localhost:3000/todo/getAll`, params);
+  async GetAll(params: Todo): Promise<any> {
+    const res = await axios.get(`http://localhost:3000/todo/getAll/${params}`);
     return res.data;
   }
 
   async GetOne(params: Todo): Promise<any> {
     const res = await axios.get(
-      `http://localhost:3000/todo/getOne/${params.id}`
+      `http://localhost:3000/todo/getOne/${params._id}`
     );
     return res.data;
   }

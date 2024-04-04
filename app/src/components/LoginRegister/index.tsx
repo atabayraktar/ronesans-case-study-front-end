@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import Router from "next/router";
 import Button from "@/components/Button";
-import { login, register } from "@/redux/user/user.slice";
+import userService from "@/services/userService";
 
 export default function LoginRegister({
   type,
@@ -10,8 +10,7 @@ export default function LoginRegister({
   type: string;
   setLoginOrRegister: any;
 }) {
-  const dispatch = useAppDispatch();
-  const { user } = useAppSelector((state) => state.user);
+  const UserService = new userService();
 
   const handleLogin = async (event: any) => {
     event.preventDefault();
@@ -19,8 +18,10 @@ export default function LoginRegister({
       username: event.target[0].value,
       password: event.target[1].value,
     };
-    await dispatch(login(params));
-    if (user?.id !== "") {
+    await UserService.Login(params).then((res) => {
+      localStorage.setItem("user", JSON.stringify(res?.foundUser?._id));
+    });
+    if (localStorage.getItem("user") !== "") {
       Router.push("/homePage");
     }
   };
@@ -30,8 +31,9 @@ export default function LoginRegister({
       username: event.target[0].value,
       password: event.target[1].value,
     };
-    dispatch(register(params));
-    setLoginOrRegister("login");
+    await UserService.Register(params).then(() => {
+      setLoginOrRegister("login");
+    });
   };
 
   return (

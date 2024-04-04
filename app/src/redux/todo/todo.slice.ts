@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createAction } from "@reduxjs/toolkit";
 import { Todo } from "../../entities/Todo";
 import TodoService from "../../services/todoService";
 
@@ -10,9 +10,9 @@ type TodoState = {
 const initialState: TodoState = {
   todos: [],
   todo: {
-    id: "",
+    _id: "",
     name: "",
-    time: new Date(),
+    time: "",
     user_id: "",
     isChecked: false,
     version: 0,
@@ -33,6 +33,7 @@ export const Filter = createAsyncThunk(
   "todo/Filter",
   async (params: Todo) => await todoService.Filter(params)
 );
+export const setTodos = createAction<Todo[]>("todos/setTodos");
 
 export const todoSlice = createSlice({
   name: "todo",
@@ -55,7 +56,7 @@ export const todoSlice = createSlice({
     builder.addCase(getOne.pending, (state) => ({
       ...state,
       todo: {
-        id: "",
+        _id: "",
         name: "",
         user_id: "",
         isChecked: false,
@@ -65,7 +66,7 @@ export const todoSlice = createSlice({
     builder.addCase(getOne.rejected, (state, action) => ({
       ...state,
       todo: {
-        id: "",
+        _id: "",
         name: "",
         user_id: "",
         isChecked: false,
@@ -89,6 +90,9 @@ export const todoSlice = createSlice({
       ...state,
       todos: action.payload.todos,
     }));
+    builder.addCase(setTodos, (state, action) => {
+      state.todos = action.payload;
+    });
   },
 });
 
